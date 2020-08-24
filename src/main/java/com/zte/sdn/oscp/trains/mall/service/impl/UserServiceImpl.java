@@ -13,6 +13,7 @@ import java.nio.charset.StandardCharsets;
 import static com.zte.sdn.oscp.trains.mall.enums.ResponseEnum.EMAIL_EXIST;
 import static com.zte.sdn.oscp.trains.mall.enums.ResponseEnum.ERROR;
 import static com.zte.sdn.oscp.trains.mall.enums.ResponseEnum.USERNAME_EXIST;
+import static com.zte.sdn.oscp.trains.mall.enums.ResponseEnum.USERNAME_OR_PASSWORD_ERROR;
 import static com.zte.sdn.oscp.trains.mall.enums.RoleEnum.CUSTOMER;
 
 @Service
@@ -22,7 +23,7 @@ public class UserServiceImpl implements IUserService {
     private UserMapper userMapper;
 
     @Override
-    public ResponseVo register(User user) {
+    public ResponseVo<User> register(User user) {
         // 1. 校验合法性
         int countOfUsername = userMapper.countByUsername(user.getUsername());
         if (countOfUsername > 0) {
@@ -46,5 +47,21 @@ public class UserServiceImpl implements IUserService {
         }
 
         return ResponseVo.success();
+    }
+
+    @Override
+    public ResponseVo<User> login(String username, String password) {
+        User user = userMapper.selectByUsername(username);
+
+        if (user == null) {
+           return ResponseVo.error(USERNAME_OR_PASSWORD_ERROR);
+        }
+
+        if (!user.getPassword().equals(DigestUtils.md5DigestAsHex(password.getBytes(StandardCharsets.UTF_8)))) {
+            return ResponseVo.error(USERNAME_OR_PASSWORD_ERROR);
+        }
+
+        user.setPassword("");
+        return ResponseVo.success(user);
     }
 }
