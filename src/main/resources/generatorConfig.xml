@@ -36,8 +36,13 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="mall_order" domainObjectName="Order" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"/>
-        <table tableName="mall_order_item" domainObjectName="OrderItem" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"/>
-        <table tableName="mall_user" domainObjectName="User" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"/>
+<!--        <table tableName="mall_order" domainObjectName="Order" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"/>-->
+<!--        <table tableName="mall_order_item" domainObjectName="OrderItem" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"/>-->
+<!--        <table tableName="mall_user" domainObjectName="User" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"/>-->
+<!--        <table tableName="mall_category" domainObjectName="Category" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"/>-->
+        <table tableName="mall_product" domainObjectName="Product" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false">
+            <columnOverride column="detail" jdbcType="VARCHAR"/>
+            <columnOverride column="sub_images" jdbcType="VARCHAR"/>
+        </table>
     </context>
 </generatorConfiguration>
