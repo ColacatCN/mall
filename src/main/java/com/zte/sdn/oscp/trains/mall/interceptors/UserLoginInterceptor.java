@@ -1,4 +1,4 @@
-package com.zte.sdn.oscp.trains.mall;
+package com.zte.sdn.oscp.trains.mall.interceptors;
 
 import com.zte.sdn.oscp.trains.mall.exception.UserLoginException;
 import com.zte.sdn.oscp.trains.mall.pojo.User;

@@ -1,4 +1,4 @@
-package com.zte.sdn.oscp.trains.mall;
+package com.zte.sdn.oscp.trains.mall.interceptors;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -15,7 +15,6 @@ public class InterceptorConfig implements WebMvcConfigurer {
                         "/user/login",
                         "/categories",
                         "/products",
-                        "/products/*",
-                        "/carts");
+                        "/products/*");
     }
 }
