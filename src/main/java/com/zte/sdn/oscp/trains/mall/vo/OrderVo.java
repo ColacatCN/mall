@@ -1,20 +1,16 @@
-package com.zte.sdn.oscp.trains.mall.pojo;
+package com.zte.sdn.oscp.trains.mall.vo;
 
+import com.zte.sdn.oscp.trains.mall.pojo.Shipping;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Data
-public class Order {
-
-    private Integer id;
+public class OrderVo {
 
     private Long orderNo;
-
-    private Integer userId;
-
-    private Integer shippingId;
 
     private BigDecimal payment;
 
@@ -30,9 +26,13 @@ public class Order {
 
     private Date endTime;
 
-    private Date closeTime;
-
     private Date createTime;
 
-    private Date updateTime;
+    private Date closeTime;
+
+    private List<OrderItemVo> orderItemVoList;
+
+    private Integer shippingId;
+
+    private Shipping shippingVo;
 }

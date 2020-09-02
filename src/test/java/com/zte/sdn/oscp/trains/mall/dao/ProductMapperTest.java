@@ -22,7 +22,7 @@ public class ProductMapperTest extends MallApplicationTests {
 
     @Test
     public void selectAll() {
-        List<Product> products = productMapper.selectByProductIds(Arrays.asList(26, 27));
+        List<Product> products = productMapper.selectByProductIdList(Arrays.asList(26, 27));
         log.info("result = {}", gson.toJson(products));
     }
 }

@@ -48,7 +48,7 @@ public class CartServiceImpl implements ICartService {
         for (Map.Entry<String, String> entry : entries.entrySet()) {
             productIdList.add(Integer.valueOf(entry.getKey()));
         }
-        Map<Integer, Product> productMap = productMapper.selectByProductIds(productIdList).stream().
+        Map<Integer, Product> productMap = productMapper.selectByProductIdList(productIdList).stream().
                 collect(Collectors.toMap(Product::getId, product -> product));
 
         CartVo cartVo = new CartVo();
@@ -197,7 +197,8 @@ public class CartServiceImpl implements ICartService {
         return ResponseVo.success(sum);
     }
 
-    private List<Cart> listForCart(Integer uid) {
+    @Override
+    public List<Cart> listForCart(Integer uid) {
         HashOperations<String, String, String> opsForHash = redisTemplate.opsForHash();
         String redisKey = String.format(CART_REDIS_KEY_TEMPLATE, uid);
         Map<String, String> entries = opsForHash.entries(redisKey);

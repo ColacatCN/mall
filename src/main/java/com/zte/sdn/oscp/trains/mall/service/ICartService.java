@@ -2,8 +2,11 @@ package com.zte.sdn.oscp.trains.mall.service;
 
 import com.zte.sdn.oscp.trains.mall.form.CartAddForm;
 import com.zte.sdn.oscp.trains.mall.form.CartUpdateForm;
+import com.zte.sdn.oscp.trains.mall.pojo.Cart;
 import com.zte.sdn.oscp.trains.mall.vo.CartVo;
 import com.zte.sdn.oscp.trains.mall.vo.ResponseVo;
+
+import java.util.List;
 
 public interface ICartService {
 
@@ -20,4 +23,6 @@ public interface ICartService {
     ResponseVo<CartVo> unSelectAll(Integer uid);
 
     ResponseVo<Integer> sum(Integer uid);
+
+    List<Cart> listForCart(Integer uid);
 }
