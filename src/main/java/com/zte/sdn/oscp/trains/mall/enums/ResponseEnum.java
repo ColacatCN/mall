@@ -37,6 +37,10 @@ public enum ResponseEnum {
 
     CART_SELECTED_IS_EMPTY(19, "请选择商品后下单"),
 
+    ORDER_NOT_EXISTS(20, "订单不存在"),
+
+    ORDER_STATUS_EXISTS(21, "订单状态有误"),
+
     ;
 
     Integer code;

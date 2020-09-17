@@ -4,6 +4,7 @@ import com.zte.sdn.oscp.trains.mall.pojo.OrderItem;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Set;
 
 public interface OrderItemMapper {
 
@@ -13,11 +14,13 @@ public interface OrderItemMapper {
 
     int insertSelective(OrderItem record);
 
-    int batchInsert(@Param("orderItemList") List<OrderItem> orderItemList);
-
     OrderItem selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(OrderItem record);
 
     int updateByPrimaryKey(OrderItem record);
+
+    int batchInsert(@Param("orderItemList") List<OrderItem> orderItemList);
+
+    List<OrderItem> selectByOrderNoSet(@Param("orderNoSet") Set<Long> orderNoSet);
 }

@@ -1,6 +1,9 @@
 package com.zte.sdn.oscp.trains.mall.dao;
 
 import com.zte.sdn.oscp.trains.mall.pojo.Order;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface OrderMapper {
 
@@ -15,4 +18,8 @@ public interface OrderMapper {
     int updateByPrimaryKeySelective(Order record);
 
     int updateByPrimaryKey(Order record);
+
+    List<Order> selectByUserId(Integer uid);
+
+    Order selectByOrderNo(Long orderNo);
 }

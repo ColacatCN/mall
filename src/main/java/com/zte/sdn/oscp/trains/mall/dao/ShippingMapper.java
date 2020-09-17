@@ -4,6 +4,7 @@ import com.zte.sdn.oscp.trains.mall.pojo.Shipping;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ShippingMapper {
 
@@ -24,4 +25,6 @@ public interface ShippingMapper {
     List<Shipping> selectByUserId(@Param("uid") Integer uid);
 
     Shipping selectByUserIdAndShippingId(@Param("uid") Integer uid, @Param("shippingId") Integer shippingId);
+
+    List<Shipping> selectByIdSet(@Param("idSet") Set<Integer> idSet);
 }
